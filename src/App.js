@@ -1,9 +1,7 @@
-import React, { useReducer } from "react";
+import React from "react";
 import './App.css';
 import logo from './logo.svg';
-import ListUsers from "./ListUsers.js";
-import ListMovies from "./ListMovies.js";
-import ListProfiles from "./ListProfiles.js";
+import FavoriteMovies from "./FavoriteMovies";
 
 const profiles = [
   {
@@ -103,16 +101,7 @@ class App extends React.Component{
             <h1 className="App-title">ReactND - Coding Practice</h1>
           </header>
           <h2>Favorite Movies</h2>
-          { profiles.map((profile) => {
-            const userName = users[profile.userID].name;
-            const movieName = movies[profile.favoriteMovieID].name;
-
-            return (
-              <li key={ profile.id }>
-                {`${userName}'s favorite movie is ${movieName}.`}
-              </li>
-            );
-          }) }
+          <FavoriteMovies profiles={ profiles } users={ users } movies={ movies } />
         </div>
       );
     }
